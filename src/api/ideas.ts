@@ -23,3 +23,7 @@ export async function createIdea(newIdea: {
   })
   return response.data
 }
+
+export async function deleteIdea(ideaId: string): Promise<void> {
+  await api.delete(`/ideas/${ideaId}`)
+}
