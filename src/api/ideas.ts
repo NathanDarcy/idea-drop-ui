@@ -27,3 +27,16 @@ export async function createIdea(newIdea: {
 export async function deleteIdea(ideaId: string): Promise<void> {
   await api.delete(`/ideas/${ideaId}`)
 }
+
+export async function updateIdea(
+  ideaId: string,
+  updatedData: {
+    title: string
+    summary: string
+    description: string
+    tags: string[]
+  },
+): Promise<Idea> {
+  const response = await api.put(`/ideas/${ideaId}`, updatedData)
+  return response.data
+}
